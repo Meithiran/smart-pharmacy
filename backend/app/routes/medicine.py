@@ -22,3 +22,7 @@ def add_medicine(medicine: MedicineCreate, db: Session = Depends(get_db)):
     db.refresh(new_med)
 
     return new_med
+
+@router.get("/medicines")
+def get_medicines(db: Session = Depends(get_db)):
+    return db.query(Medicine).all()

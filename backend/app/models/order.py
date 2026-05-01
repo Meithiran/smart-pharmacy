@@ -10,3 +10,6 @@ class Order(Base):
     priority = Column(String(10))
     status = Column(String(20), default="PENDING")
     created_at = Column(DateTime, default=datetime.utcnow)
+    prescription = Column(String(200))
+
+    

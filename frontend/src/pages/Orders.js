@@ -22,6 +22,9 @@ function Orders() {
             <th className="p-3">Patient</th>
             <th className="p-3">Priority</th>
             <th className="p-3">Status</th>
+            <div className="form-group">
+  
+
           </tr>
         </thead>
 

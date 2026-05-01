@@ -24,3 +24,6 @@ def create_patient(patient: PatientCreate, db: Session = Depends(get_db)):
     db.refresh(new_patient)
 
     return new_patient
+@router.get("/patients")
+def get_patients(db: Session = Depends(get_db)):
+    return db.query(Patient).all()

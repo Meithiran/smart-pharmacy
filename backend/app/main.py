@@ -2,6 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import patient, medicine, order, delivery
 from app.database import Base, engine
+from app.routes import admin
+from app.routes import auth
+from app.models import user
+
 
 # ✅ Step 1: create app FIRST
 app = FastAPI()
@@ -27,3 +31,5 @@ app.include_router(patient.router)
 app.include_router(medicine.router)
 app.include_router(order.router)
 app.include_router(delivery.router)
+app.include_router(admin.router)
+app.include_router(auth.router)

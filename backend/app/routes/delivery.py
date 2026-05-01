@@ -22,3 +22,7 @@ def assign_delivery(delivery: DeliveryCreate, db: Session = Depends(get_db)):
     db.refresh(new_delivery)
 
     return new_delivery
+
+@router.get("/deliveries")
+def get_deliveries(db: Session = Depends(get_db)):
+    return db.query(Delivery).all()

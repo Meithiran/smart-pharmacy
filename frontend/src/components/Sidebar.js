@@ -9,6 +9,10 @@ function Sidebar() {
         <li><Link to="/">Dashboard</Link></li>
         <li><Link to="/patients">Patients</Link></li>
         <li><Link to="/orders">Orders</Link></li>
+        
+         {localStorage.getItem("role") === "admin" && (
+    <Link to="/admin">Admin</Link>
+  )}
       </ul>
     </div>
   );

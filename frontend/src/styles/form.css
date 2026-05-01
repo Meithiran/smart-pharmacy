@@ -43,3 +43,67 @@
 .btn:hover {
   background-color: #1d4ed8;
 }
+
+/* 🔹 Admin Dashboard Upgrade */
+.admin {
+  padding: 20px;
+}
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.admin-card {
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.admin-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+.admin-card h3 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.admin-card p {
+  font-size: 14px;
+}
+
+/* 🔹 Gradient Colors */
+.blue {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.green {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.orange {
+  background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.purple {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.home-img {
+  width: 100%;
+  max-width: 400px;   /* 🔥 control size */
+  height: auto;
+  display: block;
+  margin: 20px auto;  /* center */
+}

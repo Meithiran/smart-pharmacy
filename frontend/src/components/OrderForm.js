@@ -3,6 +3,7 @@ import API from "../services/api";
 import "../styles/form.css";
 
 function OrderForm() {
+  const [file, setFile] = useState(null);
   const [patientId, setPatientId] = useState("");
   const [items, setItems] = useState([
     { medicine_id: "", quantity: "" }
@@ -17,19 +18,22 @@ function OrderForm() {
     updated[index][field] = value;
     setItems(updated);
   };
+const handleSubmit = async () => {
+  const formData = new FormData();
 
-  const handleSubmit = async () => {
-    const payload = {
-      patient_id: Number(patientId),
-      items: items.map(i => ({
-        medicine_id: Number(i.medicine_id),
-        quantity: Number(i.quantity)
-      }))
-    };
+  formData.append("patient_id", patientId);
+  formData.append("items", JSON.stringify(items));
+  formData.append("file", file);
 
-    const res = await API.post("/orders", payload);
-    alert("Order Created. Priority: " + res.data.priority);
-  };
+  try {
+    const res = await API.post("/orders", formData);
+
+    alert("Order Created"+res.data.message);
+  } catch (err) {
+    console.error(err);
+    alert("Order failed");
+  }
+};
 
   return (
     <div className="page">
@@ -43,6 +47,14 @@ function OrderForm() {
           onChange={e => setPatientId(e.target.value)}
         />
       </div>
+      {/* Prescription Upload */}
+<div className="form-group">
+  <label>Upload Prescription</label>
+  <input
+    type="file"
+    onChange={(e) => setFile(e.target.files[0])}
+  />
+</div>
 
       {/* Items */}
       <div className="items-section">
